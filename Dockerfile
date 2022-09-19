@@ -20,5 +20,4 @@ WORKDIR /erl_modsec
 
 COPY . .
 ENV LDLIBS=/usr/lib/x86_64-linux-gnu/libmodsecurity.so
-RUN make
-RUN make test
+RUN make tests
