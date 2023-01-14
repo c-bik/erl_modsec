@@ -2,7 +2,13 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
-check_request_test() ->
+check_test_() ->
+    [
+        fun check_request/0,
+        fun check_response/0
+    ].
+
+check_request() ->
     modsec_nif_worker:start_link(<<"./test/**/*.conf">>),
     ?assertMatch(
         {ok, []},
@@ -50,7 +56,7 @@ check_request_test() ->
         )
     ).
 
-check_response_test() ->
+check_response() ->
     modsec_nif_worker:start_link(<<"./test/**/*.conf">>),
     ?assertMatch(
         {ok, []},
